@@ -1,0 +1,18 @@
+.productListItem
+{
+	margin-left: 0;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 18px 0;
+}
+
+
+.productListItem .information p
+{
+	margin: 0;
+}
+
+.metafields
+{
+	display: inline-block;
+}
