@@ -6,11 +6,10 @@
  */
 
 get_header(); ?>
-		<?php echo nggShowGallery(1, 'product') ?>
 		<?php $args = array( 'post_type' => 'bil', 'posts_per_page' => 1 ); ?>
 		<?php $loop = new WP_Query( $args ); ?>
 		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<h1><?php the_title(); ?></h1>
+				<h1><?php single_post_title(); ?></h1>
 				<p class=""row><?php the_content(); ?></p>
 			    	
 		    	<dl class="dl-horizontal metafields">
