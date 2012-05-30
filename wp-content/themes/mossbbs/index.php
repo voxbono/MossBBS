@@ -9,10 +9,7 @@
 get_header(); ?>
 <div class="row">
 	<div class="span9">
-		<?php echo nggShowSlideShow(2,800,500) ?>
-	</div>
-	<div>
-		<p>Her kommer informasjon</p>
+		<?php echo nggShowGallery(2, 'front') ?>
 	</div>
 </div>
 <?php get_footer(); ?>

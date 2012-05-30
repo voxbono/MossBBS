@@ -38,4 +38,15 @@ function catch_that_image() {
 }
 
 
+/*
+ * Include all js files
+ */
+function load_js() {
+	wp_register_script( 'jquery.cycle', '' . get_bloginfo('wpurl') . '/wp-content/themes/mossbbs/scripts/libs/jquery.cycle.js');
+	wp_register_script( 'defaultscript', '' . get_bloginfo('wpurl') . '/wp-content/themes/mossbbs/scripts/script.js');
+	
+    wp_enqueue_script( 'jquery.cycle' );
+	wp_enqueue_script( 'defaultscript' );
+}
+
 ?>

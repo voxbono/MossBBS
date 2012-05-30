@@ -9,25 +9,29 @@
 	<div class="span4">
 		<div class="alert alert-info">
 			<h4>Finansiering</h4>
-			<p>Her kommer en kort tekst rundt finansiering</p>
+			<p>Her kommer en kort tekst angående finansiering</p>
 		</div>
 	</div>
 	<div class="span4">
 		<div class="alert alert-info">
 			<h4>Kommisjon</h4>
-			<p>Her kommer en kort tekst rundt finansiering</p>
+			<p>Her kommer en kort tekst angående kommisjon</p>
 		</div>
 	</div>
 	<div class="span4">
 		<div class="alert alert-info">
 			<h4>Import</h4>
-			<p>Her kommer en kort tekst rundt finansiering</p>
+			<p>Her kommer en kort tekst angående import</p>
 		</div>
 	</div>
 </div>
 		<hr>
 		<div>© Moss Bil og Båtservice 2012</div>
 	</div> <!-- container -->
+	
+	<?php
+		load_js(); // load all javascript files from functions.php
+	?>
 <?php wp_footer(); ?>
 
 </body>
