@@ -6,30 +6,26 @@
  */
 
 get_header(); ?>
-		<?php $args = array( 'post_type' => 'bil', 'posts_per_page' => 1 ); ?>
-		<?php $loop = new WP_Query( $args ); ?>
-		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<h1><?php single_post_title(); ?></h1>
-				<p class=""row><?php the_content(); ?></p>
-			    	
-		    	<dl class="dl-horizontal metafields">
-		    	
-	    			<?php $fields = array('Årsmodell', 'Km.stand', 'Pris','Merke'); ?>
-	    		
-	    			<?php foreach ($fields as $key){ ?>
-	    		
-	    				<?php if(get_post_meta($post->ID, $key, true)){ ?>
-	    	
-	    					<dt><?php echo $key ?></dt>
-	    					<dd><?php echo get_post_meta($post->ID, $key, true); ?></dd>
-	    	
-	    				<?php } ?>
-	    		
-	    			<?php } ?>
-		    	
-    			</dl>
-			
-		<?php endwhile; ?>
-		<div style="clear: both;"></div>
+		
+<h1><?php echo $post->post_title; ?></h1>
+<p class="row"><?php echo apply_filters('the_content', $post->post_content); ?></p>
+	
+<dl class="dl-horizontal metafields">
+
+	<?php $fields = array('Årsmodell', 'Km.stand', 'Pris','Merke'); ?>
+
+	<?php foreach ($fields as $key){ ?>
+
+		<?php if(get_post_meta($post->ID, $key, true)){ ?>
+
+			<dt><?php echo $key ?></dt>
+			<dd><?php echo get_post_meta($post->ID, $key, true); ?></dd>
+
+		<?php } ?>
+
+	<?php } ?>
+
+</dl>
+<div style="clear: both;" />
 		
 <?php get_footer(); ?>
