@@ -6,9 +6,9 @@
  */
 
 get_header(); ?>
-		
-<h1><?php echo $post->post_title; ?></h1>
-<p class="row"><?php echo apply_filters('the_content', $post->post_content); ?></p>
+<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+<h1><?php the_title();  ?></h1>
+<p class="row"><?php the_content(); ?>	</p>
 	
 <dl class="dl-horizontal metafields">
 
@@ -26,6 +26,7 @@ get_header(); ?>
 	<?php } ?>
 
 </dl>
+<?php endwhile; endif; ?>
 <div style="clear: both;" />
 		
 <?php get_footer(); ?>
