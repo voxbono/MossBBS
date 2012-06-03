@@ -4,26 +4,37 @@
  *
  * @package WordPress
  */
-?>
+ ?>
+
 <div class="row">
-	<div class="span4">
-		<div class="alert alert-info">
-			<h4>Finansiering</h4>
-			<p>Her kommer en kort tekst angående finansiering</p>
+<?php
+
+$my_pages = array(
+	'finansiering' => get_page_by_title( 'Finansiering' ),
+	'kommisjon' => get_page_by_title( 'Kommisjon' ),
+	'import' => get_page_by_title( 'Import' )
+);
+
+foreach($my_pages as $my_page)
+{ 
+
+	if($my_page)
+	{
+		?>
+		<div class="span4">
+			<div class="alert alert-info">
+				<h4><?php echo get_the_title($my_page -> ID); ?> </h4>
+				<p><?php the_field('teks_til_boks',$my_page->ID) ?></p>
+				<a class="btn" href="<?php echo get_page_link($my_page -> ID); ?>">Les mer...</a>
+			</div>
 		</div>
-	</div>
-	<div class="span4">
-		<div class="alert alert-info">
-			<h4>Kommisjon</h4>
-			<p>Her kommer en kort tekst angående kommisjon</p>
-		</div>
-	</div>
-	<div class="span4">
-		<div class="alert alert-info">
-			<h4>Import</h4>
-			<p>Her kommer en kort tekst angående import</p>
-		</div>
-	</div>
+		<?php 
+	}
+}
+
+?>
+
+	
 </div>
 		<hr>
 		<div>© Moss Bil og Båtservice 2012</div>

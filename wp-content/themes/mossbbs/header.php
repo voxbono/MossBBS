@@ -57,23 +57,25 @@
 					    		<a href="<?php echo get_settings('home'); ?>">Hjem</a>
 					  		</li>
 					  		<?php 
-					  		
-					  								  			
+					  		  			
 						  		$pages = get_pages();
 						  		
 						  		foreach ( $pages as $page ) {
-						  			$node = '<li class="';
-						  			$pageName = $page->post_title;
-						  			
-						  			if (is_page($pageName) || is_post_type_archive(strtolower($pageName))){
-						  					$node .= 'active';
-						  			}
-						  			
-						  			$node .= '"><a href="' . get_page_link( $page->ID ) . '">';
-						  			$node .= $page->post_title;
-						  			$node .= '</a></li>';
-						  			
-						  			echo $node;
+					  				if( get_field('vis_i_navigering',$page->ID) == 1)
+									{
+										$node = '<li class="';
+							  			$pageName = $page->post_title;
+							  			
+							  			if (is_page($pageName) || is_post_type_archive(strtolower($pageName))){
+							  					$node .= 'active';
+							  			}
+							  			
+							  			$node .= '"><a href="' . get_page_link( $page->ID ) . '">';
+							  			$node .= $page->post_title;
+							  			$node .= '</a></li>';
+							  			
+							  			echo $node;
+									}
 						  		}
 						  		
 					  		?>

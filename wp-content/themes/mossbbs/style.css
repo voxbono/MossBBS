@@ -1,4 +1,17 @@
 /* @override http://www.mossbbs.no/wp-content/themes/mossbbs/style.css */
+.productPreview
+{
+	margin-bottom: 10px;
+	margin-left: 0px;
+	background-color: #eee;	
+	border-radius: 5px;
+	padding-bottom: 10px;
+}
+
+.productViewContainer
+{
+	margin-left: 0px;
+}
 
 .productListItem
 {
@@ -31,6 +44,7 @@
 	height:100%;
 	clear:both;
 	margin-left: -40px;
+	padding: 5px;
 }
 
 .front-image > div
@@ -38,7 +52,5 @@
 	color: #333;
 	background-color:#EEE;
 	position:relative;
-	height:100%;
-	padding: 5px;
 	border-radius: 5px;
 }

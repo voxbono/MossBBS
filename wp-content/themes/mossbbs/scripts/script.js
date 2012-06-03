@@ -7,8 +7,8 @@ jQuery(document).ready(
 
 function _initCycle()
 {
-	jQuery('.ngg-galleryoverview ul').cycle({ 
-	    fx:     'scrollDown', 
+	jQuery('.front-image-list').cycle({ 
+	    fx:     'fade', 
 	    delay:  -2000 ,
 	    timeout: 10000,
 	    //autostop : 1
