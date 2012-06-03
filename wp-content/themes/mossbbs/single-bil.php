@@ -7,25 +7,57 @@
 
 get_header(); ?>
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-<h1><?php the_title();  ?></h1>
-<p class="row"><?php the_content(); ?>	</p>
+	<h1><?php the_title();  ?></h1>
+	<p class="row"><?php the_content(); ?>	</p>
 	
-<dl class="dl-horizontal metafields">
-
-	<?php $fields = array('Årsmodell', 'Km.stand', 'Pris','Merke'); ?>
-
-	<?php foreach ($fields as $key){ ?>
-
-		<?php if(get_post_meta($post->ID, $key, true)){ ?>
-
-			<dt><?php echo $key ?></dt>
-			<dd><?php echo get_post_meta($post->ID, $key, true); ?></dd>
-
-		<?php } ?>
-
-	<?php } ?>
-
-</dl>
+	<div class="row">
+		<div class="span3">
+		
+			<?php $jvb_fields = array(
+				'year' => 'Årsmodell',
+				'km' => 'Km. Stand',
+				'pris' => 'Pris'
+			
+			); ?>
+			
+			<ul class="unstyled">
+			<?php foreach ($jvb_fields as $key => $value) {
+							
+				if(get_field($key)){ ?>
+					<li style="position:relative">
+						<span><strong><?php echo $value; ?>: </strong></span>
+						<span style="position: absolute;right:10px;"><?php the_field($key); ?></span>
+					</li>
+					
+				<?php }
+		
+			} ?>
+				
+			</ul>
+		</div>
+		
+		<div class="span3">
+			
+			<?php 
+				$utstyr = get_field('utstyr');
+				
+				if($utstyr)
+				{
+					echo '<p><strong>Utstyr:</strong></p>';
+					echo '<ul class="unstyled">';
+		 
+					foreach($utstyr as $value)
+					{
+						echo '<li>' . $value . '</li>';
+					}
+				 
+					echo '</ul>';
+				}
+			the_field('egendefinert_utstyr'); ?>
+		</div>
+	</div>	
+	
+	
 <?php endwhile; endif; ?>
 <div style="clear: both;" />
 		

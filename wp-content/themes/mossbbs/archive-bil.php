@@ -11,9 +11,9 @@ get_header(); ?>
 	<li class="row productListItem">
 	    <div class="span12">
 	    	<div class="span3">
-	    		<?php if ( has_post_thumbnail() ) {
-	    			the_post_thumbnail('thumbnail');
-	    		} ?>
+	    		<?php if(get_field('thumbnail')){ ?>
+	    			<img src="<?php the_field('thumbnail'); ?>" alt="" />
+	    		<?php } ?>
 	    	</div>
 	    	
 	    	<!--img src="<?php echo catch_that_image() ?>" alt="" class="span3 image"-->
@@ -23,22 +23,30 @@ get_header(); ?>
 			</div>
 			<div class="row span8 information">
 				
-				<?php $fields = array('Årsmodell', 'Km.stand', 'Pris' ); ?>
-			
-				<?php foreach ($fields as $key){ ?>
-			
-					<?php if(get_post_meta($post->ID, $key, true)){ ?>
+				<?php $jvb_fields = array(
+					'year' => 'Årsmodell',
+					'km' => 'Km. Stand',
+					'pris' => 'Pris'
+				
+				); ?>
+				
+				<?php foreach ($jvb_fields as $key => $value) {
+						
+					if(get_field($key)){ ?>
+						
 						<div class="span2">
-							<p><em><?php echo $key ?></em></p>
-							<p><strong><?php echo get_post_meta($post->ID, $key, true); ?></strong></p>
+							<p><em><?php echo $value; ?></em></p>
+							<p><strong><?php the_field($key); ?></strong></p>
 						</div>
-					<?php } ?>
+						
+					<?php }
 			
-				<?php } ?>
+				} ?>
 				
 			</div>
 		</div>
   </li>
+ 
 
 <?php endwhile; ?>
 </ul>

@@ -3,6 +3,7 @@
 .productListItem
 {
 	margin-left: 0;
+	margin-bottom: 10px;
 	border: 1px solid black;
 	border-radius: 5px;
 	padding: 18px 0;
